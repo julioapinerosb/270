@@ -1,0 +1,40 @@
+{% with messages =  get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+    <p>{{ message }}</p>
+    
+{% endfor %}
+{%  for faltantes in faltantes %}
+    {{ faltantes }}
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+{% block content %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/login" method="post">
+
+        <input type="text" name="usuario" id="usuario" placeholder="Usuario" require>
+        <input type="password" name="password"  id="password" placeholder="Contraseña">
+        <button type="submit">INICIAR SESIÓN</button>
+
+    </form>
+
+    <form action="/ingreso_usuario" method="post">
+
+        <input type="text" name="usuario" id="usuario" placeholder="Usuario" require>
+        <input type="password" name="password"  id="password" placeholder="Contraseña">
+        <button type="submit">REGISTRO</button>
+
+    </form>
+</body>
+</html>
+
+{% endblock %}

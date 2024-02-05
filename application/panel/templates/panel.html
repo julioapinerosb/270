@@ -1,0 +1,60 @@
+{% with messages =  get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+    <p>{{ message }}</p>
+    
+{% endfor %}
+{%  for faltantes in faltantes %}
+    {{ faltantes }}
+{% endfor %}
+{% endif %}
+{% endwith %}
+{% extends "layout.html" %} 
+
+{% block content %} 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel</title>
+</head>
+<body>
+    <div class="container">
+        <p>Bienvenid@: {{ session['usuario'] }}</p>
+        <div class="row">
+        <div class="col-lg-3">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav flex-column">
+                    <li class="nav-item active">
+                    <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Opción 1</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Opción 2</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Opción 3</a>
+                    </li>
+                </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="col-lg-9">
+            <center>
+                <img src="{{ url_for('static', filename='image/270.png') }}" alt="">
+            </center>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
+{% endblock %}
